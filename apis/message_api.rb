@@ -35,19 +35,19 @@ class MessageApi
   def resend_message(service_id, user_id, message_id)
     if !self.is_valid_id(service_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The resend_message method must be invoked with a non-empty string service_id argument."
       )
     end
     if !self.is_valid_id(user_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The resend_message method must be invoked with a non-empty string user_id argument."
       )
     end
     if !self.is_valid_id(message_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The resend_message method must be invoked with a non-empty string message_id argument."
       )
     end
@@ -60,21 +60,21 @@ class MessageApi
   def get_message(service_id, user_id, message_id)
     if !self.is_valid_id(service_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The get_message method must be invoked with a non-empty string service_id argument."
       )
     end
     
     if !self.is_valid_id(user_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The get_message method must be invoked with a non-empty string user_id argument."
       )
     end
     
     if !self.is_valid_id(message_id)
       return new_error(
-        error_types['missing_parameter'],
+        ERROR_TYPES['missing_parameter'],
         "The get_message method must be invoked with a non-empty string message_id argument."
       )
     end
