@@ -1,6 +1,5 @@
 require "faraday"
 require "json"
-require_relative "error"
 
 MAX_RETRY_ATTEMPTS = 5
 MAX_TIMEOUT = 5
@@ -46,7 +45,6 @@ class HttpClient
       end
       
       request.attempt += 1;
-      
     end
   end
 end
