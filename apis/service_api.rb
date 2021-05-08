@@ -1,4 +1,3 @@
-require "faraday"
 require_relative "error"
 require_relative "http_request"
 require_relative "http_client"
