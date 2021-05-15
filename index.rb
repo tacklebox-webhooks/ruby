@@ -6,7 +6,7 @@ require_relative "./components/subscription"
 require_relative "./components/event"
 require_relative "./components/message"
 
-class CaptainHook
+class Tacklebox
   attr_accessor :service, :event_type, :user, :subscription, :event, :message
   
   def initialize(api_key, base_url)
