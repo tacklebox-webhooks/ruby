@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+# Specify your gem's dependencies in tacklebox.gemspec
+gemspec
 
-gem 'faraday', '~> 1.4', '>= 1.4.1'
-gem 'json', '~> 2.5', '>= 2.5.1'
+gem "rake", "~> 12.0"
