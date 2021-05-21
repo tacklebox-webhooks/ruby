@@ -11,15 +11,15 @@ class EventType
     self.api.list_event_types(service_id)
   end
   
-  def create(service_id, event_typeData)
-    self.api.createEventType(service_id, event_typeData)
+  def create(service_id, event_type_data)
+    self.api.createEventType(service_id, event_type_data)
   end
   
-  def get(service_id, event_typeId)
-    self.api.getEventType(service_id, event_typeId)
+  def get(service_id, event_type_id)
+    self.api.getEventType(service_id, event_type_id)
   end
   
-  # async def delete(service_id, event_typeId)
-  #   self.api.deleteEventType(service_id, event_typeId)
-  # end
+  def delete(service_id, event_type_id)
+    self.api.deleteEventType(service_id, event_type_id)
+  end
 end 

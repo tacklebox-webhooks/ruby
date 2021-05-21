@@ -11,15 +11,15 @@ class User
     self.api.list_users(service_id)
   end
   
-  def create(service_id, userData)
-    self.api.create_user(service_id, userData)
+  def create(service_id, user_data)
+    self.api.create_user(service_id, user_data)
   end
   
   def get(service_id, user_id)
     self.api.get_user(service_id, user_id)
   end
   
-  # def delete(service_id, user_id)
-  #   self.api.delete_user(service_id, user_id)
-  # end
+  def delete(service_id, user_id)
+    self.api.delete_user(service_id, user_id)
+  end
 end

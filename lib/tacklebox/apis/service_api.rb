@@ -32,11 +32,18 @@ class ServiceApi
     self.http_client.send(request)
   end
 
-  # def delete_service(service_id)
-  #   url = "#{self.base_url}/#{service_id}"
-  #   request = HttpRequest.new("DELETE", url)
-  #   self.http_client.send(request)
-  # end
+  def delete_service(service_id)
+    if !self.is_valid_id(service_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The get_service method must be invoked with a non-empty string service_id argument."
+      )
+    end
+    
+    url = "#{self.base_url}/#{service_id}"
+    request = HttpRequest.new("DELETE", url)
+    self.http_client.send(request)
+  end
 
   def get_service(service_id)
     if !self.is_valid_id(service_id)

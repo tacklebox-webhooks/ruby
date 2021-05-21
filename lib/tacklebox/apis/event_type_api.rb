@@ -44,11 +44,23 @@ class EventTypeApi
     @http_client.send(request)
   end
 
-  # def delete_event_type(service_id, event_type_id)
-  #   path = "/#{service_id}/event_types/#{event_type_id}"
-  #   request = HttpRequest.new("DELETE", @base_url, path)
-  #   @http_client.send(request)
-  # end
+  def delete_event_type(service_id, event_type_id)
+    if !self.is_valid_service_id(service_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The delete_event_type method must be invoked with a non-empty string service_id argument."
+      )
+    elsif !self.event_type_id(event_type_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The delete_event_type method must be invoked with a non-empty string event_type_id argument."
+      )
+    end
+    
+    path = "/#{service_id}/event_types/#{event_type_id}"
+    request = HttpRequest.new("DELETE", @base_url, path)
+    @http_client.send(request)
+  end
 
   def get_event_type(service_id, event_type_id)
     if !self.is_valid_service_id(service_id)

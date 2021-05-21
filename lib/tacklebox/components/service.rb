@@ -19,7 +19,7 @@ class Service
     self.api.get_service(service_id)
   end
   
-  #  def delete(service_id)
-  #    self.api.delete_service(service_id)
-  # end
+  def delete(service_id)
+    self.api.delete_service(service_id)
+  end
 end

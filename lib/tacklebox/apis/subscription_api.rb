@@ -81,4 +81,29 @@ class SubscriptionApi
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
+  
+  def delete_subscription(service_id, user_id, subscription_id)
+    if !self.is_valid_id(service_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The delete_subscription method must be invoked with a non-empty string service_id argument."
+      )
+    end
+    if !self.is_valid_id(user_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The delete_subscription method must be invoked with a non-empty string user_id argument."
+      )
+    end
+    if !self.is_valid_id(subscription_id)
+      return new_error(
+        ERROR_TYPES['missing_parameter'],
+        "The delete_subscription method must be invoked with a non-empty string subscription_id argument."
+      )
+    end
+    
+    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/subscriptions/#{subscription_id}"
+    request = HttpRequest.new("DELETE", @base_url, path)
+    @http_client.send(request)
+  end
 end
