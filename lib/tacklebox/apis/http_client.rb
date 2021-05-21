@@ -7,7 +7,7 @@ MAX_TIMEOUT = 5
 class HttpClient
   def initialize(api_key)
     @headers = {
-      "Authorization" => api_key,
+      "x-api-key" => api_key,
       "Content-Type" => "application/json",
     }
   end
@@ -18,7 +18,7 @@ class HttpClient
       headers: @headers,
       request: { timeout: MAX_TIMEOUT }
     )
-
+    
     while request.attempt <= MAX_RETRY_ATTEMPTS
       begin
         case request.method
