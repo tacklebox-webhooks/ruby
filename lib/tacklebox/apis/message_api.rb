@@ -5,11 +5,10 @@ require_relative "http_client"
 class MessageApi
   include Validation
   
-  attr_accessor :base_url, :http_client, :stage
+  attr_accessor :base_url, :http_client
   
   def initialize(config)
     self.base_url = config[:base_url]
-    self.stage = config[:stage]
     self.http_client = HttpClient.new(config[:api_key])
   end
 
@@ -27,7 +26,7 @@ class MessageApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/messages"
+    path = "services/#{service_id}/users/#{user_id}/messages"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
@@ -52,7 +51,7 @@ class MessageApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/messages/#{message_id}/resend"
+    path = "services/#{service_id}/users/#{user_id}/messages/#{message_id}/resend"
     request = HttpRequest.new("POST", @base_url, path)
     @http_client.send(request)
   end
@@ -79,7 +78,7 @@ class MessageApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/messages/#{message_id}"
+    path = "services/#{service_id}/users/#{user_id}/messages/#{message_id}"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end

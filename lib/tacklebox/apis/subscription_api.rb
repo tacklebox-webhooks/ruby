@@ -5,11 +5,10 @@ require_relative "http_client"
 class SubscriptionApi
   include Validation
   
-  attr_accessor :base_url, :http_client, :stage
+  attr_accessor :base_url, :http_client
   
   def initialize(config)
     self.base_url = config[:base_url]
-    self.stage = config[:stage]
     self.http_client = HttpClient.new(config[:api_key])
   end
 
@@ -27,7 +26,7 @@ class SubscriptionApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/subscriptions"
+    path = "services/#{service_id}/users/#{user_id}/subscriptions"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
@@ -52,7 +51,7 @@ class SubscriptionApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/subscriptions"
+    path = "services/#{service_id}/users/#{user_id}/subscriptions"
     request = HttpRequest.new("POST", @base_url, path, subscription_data)
     @http_client.send(request)
   end
@@ -77,7 +76,7 @@ class SubscriptionApi
       )
     end
     
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/subscriptions/#{subscription_id}"
+    path = "services/#{service_id}/users/#{user_id}/subscriptions/#{subscription_id}"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
@@ -102,7 +101,7 @@ class SubscriptionApi
       )
     end
     
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/subscriptions/#{subscription_id}"
+    path = "services/#{service_id}/users/#{user_id}/subscriptions/#{subscription_id}"
     request = HttpRequest.new("DELETE", @base_url, path)
     @http_client.send(request)
   end

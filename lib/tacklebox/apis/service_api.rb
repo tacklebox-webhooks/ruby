@@ -5,16 +5,15 @@ require_relative "http_client"
 class ServiceApi
   include Validation
   
-  attr_accessor :base_url, :http_client, :stage
+  attr_accessor :base_url, :http_client
   
   def initialize(config)
     self.base_url = config[:base_url]
-    self.stage = config[:stage]
     self.http_client = HttpClient.new(config[:api_key])
   end
 
   def list_services
-    path = "/#{@stage}/services"
+    path = "services"
     request = HttpRequest.new("GET", @base_url, path)
     self.http_client.send(request)
   end
@@ -27,7 +26,7 @@ class ServiceApi
       )
     end
 
-    path = "/#{@stage}/services"
+    path = "services"
     request = HttpRequest.new("POST", @base_url, path, service_data)
     self.http_client.send(request)
   end
@@ -40,8 +39,8 @@ class ServiceApi
       )
     end
     
-    url = "#{self.base_url}/#{service_id}"
-    request = HttpRequest.new("DELETE", url)
+    path = "services/#{service_id}"
+    request = HttpRequest.new("DELETE", @base_url, path)
     self.http_client.send(request)
   end
 
@@ -53,7 +52,7 @@ class ServiceApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}"
+    path = "services/#{service_id}"
     request = HttpRequest.new("GET", @base_url, path)
     self.http_client.send(request)
   end

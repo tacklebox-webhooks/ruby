@@ -12,7 +12,6 @@ class Tacklebox
     config = {
       api_key: api_key,
       base_url: base_url,
-      stage: 'v1'
     }
     
     self.service = Service.new(config)

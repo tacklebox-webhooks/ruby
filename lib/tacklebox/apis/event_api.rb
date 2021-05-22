@@ -5,11 +5,10 @@ require_relative "http_client"
 class EventApi
   include Validation
   
-  attr_accessor :base_url, :http_client, :stage
+  attr_accessor :base_url, :http_client
   
   def initialize(config)
     self.base_url = config[:base_url]
-    self.stage = config[:stage]
     self.http_client = HttpClient.new(config[:api_key])
   end
 
@@ -28,7 +27,7 @@ class EventApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/events"
+    path = "services/#{service_id}/users/#{user_id}/events"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
@@ -55,7 +54,7 @@ class EventApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/events"
+    path = "services/#{service_id}/users/#{user_id}/events"
     request = HttpRequest.new("POST", @base_url, path, event_data)
     @http_client.send(request)
   end
@@ -82,7 +81,7 @@ class EventApi
       )
     end
 
-    path = "/#{@stage}/services/#{service_id}/users/#{user_id}/events/#{event_id}"
+    path = "services/#{service_id}/users/#{user_id}/events/#{event_id}"
     request = HttpRequest.new("GET", @base_url, path)
     @http_client.send(request)
   end
