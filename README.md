@@ -11,7 +11,7 @@ Tacklebox is an open-source serverless framework that offers webhooks as a servi
 
 It includes:
 - a [CLI tool](https://github.com/tacklebox-webhooks/cli) to deploy and manage AWS infrastructure
-- 4 client libraries ([Ruby](https://github.com/tacklebox-webhooks/Ruby),
+- 4 client libraries ([JavaScript](https://github.com/tacklebox-webhooks/javascript),
     [Ruby](https://github.com/tacklebox-webhooks/ruby),
     [Python](https://github.com/tacklebox-webhooks/python),
     and [Go](https://github.com/tacklebox-webhooks/golang))
