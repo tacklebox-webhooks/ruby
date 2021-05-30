@@ -58,22 +58,22 @@ require 'tacklebox'
 
 # Initialize a Tacklebox object using the API Key and API Host
 # obtained after running 'tacklebox deploy'
-tacklebox = Tacklebox.new(API_KEY, API_HOST);
+tacklebox = Tacklebox.new(API_KEY, API_HOST)
 ```
 
 Once you include the package and initialize a Tacklebox object, you can do
 many things. For example, you can create a service like so:
 
 ```ruby
-tacklebox.service.create({ "name" => "service1" });
+tacklebox.service.create({ "name" => "service1" })
 ```
 
 Once you create services, event types, users and subscriptions,
 you can create a new event like so:
 
 ```ruby
-service_id = "d90af763-5839-4a90-834c-5512980984f5";
-user_id = "cabea1b5-b485-41b7-8146-72ece22dc458";
+service_id = "d90af763-5839-4a90-834c-5512980984f5"
+user_id = "cabea1b5-b485-41b7-8146-72ece22dc458"
 
 event_data = {
   "event_type" => "greet",
@@ -83,14 +83,14 @@ event_data = {
   "idempotency_key" => "1"
 }
 
-tacklebox.event.create(service_id, user_id, event_data);
+tacklebox.event.create(service_id, user_id, event_data)
 ```
 
 If you want to see the message log for a specific user and service:
 
 ```ruby
-service_id = "d90af763-5839-4a90-834c-5512980984f5";
-user_id = "cabea1b5-b485-41b7-8146-72ece22dc458";
+service_id = "d90af763-5839-4a90-834c-5512980984f5"
+user_id = "cabea1b5-b485-41b7-8146-72ece22dc458"
 
-tacklebox.message.list(service_id, user_id);
+tacklebox.message.list(service_id, user_id)
 ```
