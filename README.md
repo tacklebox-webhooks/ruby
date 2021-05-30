@@ -78,7 +78,7 @@ user_id = "cabea1b5-b485-41b7-8146-72ece22dc458"
 event_data = {
   "event_type" => "greet",
   "payload" => {
-  	"message" => "Hello from the Ruby wrapper!"
+    "message" => "Hello from the Ruby wrapper!"
   },
   "idempotency_key" => "1"
 }
