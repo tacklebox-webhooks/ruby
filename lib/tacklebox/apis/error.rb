@@ -26,6 +26,10 @@ module Validation
   end
   
   def is_valid_subscription_data(data)
+    if data['eventTypes']
+      data['event_types'] = data['eventTypes']
+    end
+    
     (
       data['url'] &&
       data['url'].class == String &&
@@ -35,6 +39,14 @@ module Validation
   end
   
   def is_valid_event_data(data)
+    if data['eventType']
+      data['event_type'] = data['eventType']
+    end
+    
+    if data['idempotencyKey']
+      data['idempotency_key'] = data['idempotencyKey']
+    end
+    
     (
       data['event_type'] &&
       data['event_type'].class == String &&
